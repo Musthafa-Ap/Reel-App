@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "500409929350",
+    "project_id": "reel-app-ce37d",
+    "storage_bucket": "reel-app-ce37d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500409929350:android:44623cd227f5bb29aecb07",
+        "android_client_info": {
+          "package_name": "com.example.reel_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7bWjVkKbIYTOuylLDBoYjr9xwslhY9YY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

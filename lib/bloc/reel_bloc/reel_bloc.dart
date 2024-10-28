@@ -1,20 +1,16 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:reel_app/bloc/ree_bloc/reel_event.dart';
-import 'package:reel_app/bloc/ree_bloc/reel_state.dart';
+import 'package:reel_app/bloc/reel_bloc/reel_event.dart';
+import 'package:reel_app/bloc/reel_bloc/reel_state.dart';
+import 'package:reel_app/repository/reel_repository.dart';
 import 'package:video_player/video_player.dart';
 
 class ReelBloc extends Bloc<ReelEvent, ReelState> {
-  final List<String> videoUrls = [
-    'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-    'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4',
-    'https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_20mb.mp4',
-    'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
-  ];
   List<VideoPlayerController> _controllers = [];
 
   ReelBloc() : super(ReelLoading()) {
     on<LoadVideosEvent>((event, emit) async {
       try {
+        List<String> videoUrls = await ReelRepository().fetchReels();
         _controllers = videoUrls.map((url) {
           final controller = VideoPlayerController.networkUrl(Uri.parse(url));
           return controller;
